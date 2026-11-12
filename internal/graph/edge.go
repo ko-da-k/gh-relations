@@ -95,17 +95,12 @@ const (
 	Undirected
 )
 
-// Link is one relation as a single fetched item reports it. It is the raw
-// material of normalization: a direction relative to the item that was fetched,
-// and whatever that response said about the item at the other end.
+// Link is one relation as a single fetched item reports it: a direction
+// relative to that item, and whatever the response said about the far end.
 type Link struct {
 	Type  EdgeType
 	Dir   Direction
 	Other Node
-
-	// Partial is set when the connection this link came out of had another
-	// page that was not fetched, so the item has links that were not seen.
-	Partial bool
 }
 
 // Observation is everything one fetched item told us: what it is, and the links
