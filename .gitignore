@@ -1,2 +1,5 @@
-/gh-tangle
-/gh-tangle.exe
+/gh-relations
+/gh-relations.exe
+
+# Local working files
+/tmp/

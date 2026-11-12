@@ -7,13 +7,13 @@ import (
 )
 
 func main() {
-	fmt.Println("hi world, this is the gh-tangle extension!")
+	fmt.Println("hi world, this is the gh-relations extension!")
 	client, err := api.DefaultRESTClient()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	response := struct {Login string}{}
+	response := struct{ Login string }{}
 	err = client.Get("user", &response)
 	if err != nil {
 		fmt.Println(err)

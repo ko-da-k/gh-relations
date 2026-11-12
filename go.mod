@@ -1,4 +1,4 @@
-module github.com/ko-da-k/gh-tangle
+module github.com/ko-da-k/gh-relations
 
 go 1.27.3
 
