@@ -1,0 +1,44 @@
+# Checks to run before a change is recorded, and the live check to run by hand.
+#
+# jj does not run git hooks, so nothing here fires by itself: the `jj check`
+# alias runs `lefthook run pre-commit` over everything between trunk() and @.
+# Under plain git the same file works as a hook after `lefthook install`.
+#
+# Every job is whole-tree, with `glob` deciding only whether it runs at all:
+# the Go tools work on packages, and `jj check` also passes deleted paths.
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: gofmt
+      glob: "*.go"
+      # gofmt exits 0 while listing what it would rewrite, so the exit code has
+      # to come from the output being empty.
+      run: |
+        unformatted="$(gofmt -l .)"
+        if [ -n "$unformatted" ]; then
+          printf 'gofmt would rewrite:\n%s\n' "$unformatted"
+          exit 1
+        fi
+
+    - name: go vet
+      glob: "*.go"
+      run: go vet ./...
+
+    - name: go test
+      glob: "*.go"
+      run: go test ./...
+
+    - name: go build
+      glob: "*.go"
+      run: go build ./...
+
+# `lefthook run verify-live`
+#
+# Not part of pre-commit: it needs the network and a `gh` token, and it reads
+# Issues and pull requests that somebody else can change. Run it after touching
+# the fixture, the renderer, scripts/expected/ or either README.
+verify-live:
+  jobs:
+    - name: documented trees match the real items
+      run: ./scripts/verify-live.sh

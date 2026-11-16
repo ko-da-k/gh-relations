@@ -1,0 +1,14 @@
+◯ #1  【for Test】closed by fixtures#4, parent of fixtures#1, blocks/relates/tracked in fixtures#2
+├▸ ◇ gh-relations-fixtures#4  【for Test】closes gh-relations#1
+├▾ ◯ gh-relations-fixtures#1  【for Test】sub of gh-relations#1, closed by #3, duplicate of #2 and #5, tracked in #2
+│  ├▸ ◇ gh-relations-fixtures#3  【for Test】closes #1
+│  ├= ◯ gh-relations-fixtures#2  【for Test】blocked by, relates to and tracks gh-relations#1; tracks #1; duplicate of #1  ↱
+│  └= ◇ gh-relations-fixtures#5  【for Test】duplicate of #1
+└⊚~▪ ◯ gh-relations-fixtures#2  【for Test】blocked by, relates to and tracks gh-relations#1; tracks #1; duplicate of #1
+   └▫ ◯ gh-relations-fixtures#1  【for Test】sub of gh-relations#1, closed by #3, duplicate of #2 and #5, tracked in #2  ↱
+
+kind   ◯ issue  ◇ pull request
+state  open  closed  draft  not planned
+link   what this line is to its parent above:
+       ▸ closes/closed by  ▾ sub of  ⊚ blocked by  ~ relates to  = duplicate  ▪ tracks  ▫ tracked in
+mark   ↱ drawn above
