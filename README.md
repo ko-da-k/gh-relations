@@ -1,5 +1,7 @@
 # gh-relations
 
+[English](README.md) | [日本語](README.ja.md)
+
 A [`gh extension`](https://cli.github.com) that draws linked Issues and pull requests as a graph in
 the terminal
 
