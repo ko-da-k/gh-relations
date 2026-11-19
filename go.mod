@@ -5,7 +5,7 @@ go 1.27.3
 require (
 	github.com/cli/go-gh/v2 v2.17.0
 	github.com/rivo/uniseg v0.4.7
-	golang.org/x/text v0.43.0
+	golang.org/x/text v0.44.0
 )
 
 require (
