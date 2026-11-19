@@ -33,6 +33,11 @@ pre-commit:
       glob: "*.go"
       run: go build ./...
 
+    - name: zizmor
+      glob: ".github/**"
+      # Through mise, so this runs the version mise.lock pins and CI runs.
+      run: mise exec -- zizmor --no-online-audits --collect=default,dependabot .
+
 # `lefthook run verify-live`
 #
 # Not part of pre-commit: it needs the network and a `gh` token, and it reads
